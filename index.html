@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/datastruct.js"></script>
+    <script src="js/pathfind.js"></script>
+    <script src="js/pathfinders/bfs.js"></script>
+    <script src="js/pathfinders/dijkstra.js"></script>
+    <script src="js/pathfinders/astar.js"></script>
+    <script src="js/pathfinders/jps.js"></script>
+</head>
+
+<body>
+    <div class="grid-container" ondragstart="return false;" ondrop="return false;"></div>
+    <button onclick="if (grid.mode == 'pathfind') return; grid.setMode('edit'); grid.clearColors()"> <b>Edit</b> </button>
+    <button onclick="if (grid.mode == 'pathfind') return; bfs.run()"> <b>Breadth First Search</b></button>
+    <button onclick="if (grid.mode == 'pathfind') return; dijkstra.run()"> <b>Dijkstra's Algorithm</b></button>
+    <button onclick="if (grid.mode == 'pathfind') return; astar.run()"> <b>A* Search</b></button>
+    <button onclick="if (grid.mode == 'pathfind') return; jps.run()"> <b>Jump Point Search</b></button>
+     
+    <div>
+        <button onclick="showModal()" ><b>Colour Palette</b> </button>
+    
+        <div id="infoModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="hideModal()">&times;</span>
+                 
+                <ul>
+                    <li style="color: rgb(158, 255, 102);">Starting Block</li>
+                    <li style="color: rgb(255, 2, 2);;">Goal Block</li>
+                    <li style="color: rgb(246, 6, 114);;">Best Path</li>
+                    <li style="color: rgb(255, 213, 134);">Explored Blockes</li>
+                    <li style="color :rgb(250, 141, 133);">Visited Blockes</li>
+                    <li style="color :gray;"> Wall's / Blockers in Path </li>
+                    
+    
+                    <!-- Add more colors and their meanings as needed -->
+                </ul>
+
+                
+            </div>
+        </div>
+     </div>
+   
+
+    <script src="js/grid.js"></script>
+
+    <script>
+        function showModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function hideModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById('infoModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+
+    
+
+
+</html>
